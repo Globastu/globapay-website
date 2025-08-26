@@ -26,7 +26,7 @@ function CapabilityChips() {
             "rounded-full border border-emerald-200/60 bg-white px-3 py-1 text-xs font-medium text-emerald-800 shadow-sm",
             "animate-[fadeInUp_0.45s_ease_forwards]",
           )}
-          style={{ animationDelay: `${i * 80}ms` } as any}
+          style={{ animationDelay: `${i * 80}ms` } as React.CSSProperties}
         >
           {c}
         </span>
@@ -366,8 +366,7 @@ function Partners() {
 
 /** ---------- 7) Final CTA ---------- */
 function FinalCTA() {
-  const tabs: Array<"Platform" | "Merchant" | "Investor"> = ["Platform", "Merchant", "Investor"];
-  const [active, setActive] = useState<(typeof tabs)[number]>("Platform");
+  const [active, setActive] = useState<"Platform" | "Merchant" | "Investor">("Platform");
   return (
     <section className="mx-auto max-w-6xl px-4 py-16">
       <div className="rounded-2xl border bg-white p-8 shadow-sm">
@@ -379,7 +378,7 @@ function FinalCTA() {
           {["Platform", "Merchant", "Investor"].map((t) => (
             <button
               key={t}
-              onClick={() => setActive(t as any)}
+              onClick={() => setActive(t as "Platform" | "Merchant" | "Investor")}
               className={cx(
                 "rounded-full border px-3 py-1 text-xs",
                 active === t ? "border-emerald-600 text-emerald-700" : "text-gray-600",
